@@ -1,7 +1,6 @@
 package servlet;
 
 import manager.MessageManager;
-import manager.UserManager;
 import model.Message;
 import model.User;
 
