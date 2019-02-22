@@ -11,9 +11,10 @@
 
 <div style="float: left;width: 40%;">
     <div>
-        <img src="/getImage?picName=<c:out value="${user.picUrl}"/>" width="200"/>
+        <img src="/getImage?picName=${user.picUrl}" width="200"/>
     </div>
-    <c:out value="${user.name}"/> &nbsp; <c:out value="${user.surname}"/>
+    ${user.name} &nbsp; ${user.surname} <br><br>
+    <a href="/user/myMessage?id=${user.id}" >Message</a>
 </div>
 <div style="float: left;width: 55%;">
     All Users:
@@ -80,8 +81,8 @@
                 <td>${user.surname}
                 </td>
                 <td><img src="/getImage?picName=${user.picUrl}" width="100"/></td>
-                <td><a href="/user/removeFriend?id=${user.id}">delete from friend list</a></td>
-                <td><a href="/user/message?id=${user.id}">send message</a></td>
+                <td><a href="/user/removeFriend?id=${user.id}">delete from friend list</a><br>
+                <a href="/user/message?id=${user.id}">send message</a></td>
             </tr>
         </c:forEach>
 
