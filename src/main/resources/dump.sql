@@ -16,6 +16,23 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`social_network` /*!40100 DEFAULT CHARAC
 
 USE `social_network`;
 
+/*Table structure for table `message` */
+
+DROP TABLE IF EXISTS `message`;
+
+CREATE TABLE `message` (
+  `user_id` int(11) NOT NULL,
+  `friend_id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `date` datetime NOT NULL,
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `message_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `message` */
+
+insert  into `message`(`user_id`,`friend_id`,`message`,`date`) values (1,2,'ghcjyc','2019-02-22 01:39:50'),(2,1,'dsfvsef','2019-02-22 02:56:35');
+
 /*Table structure for table `user` */
 
 DROP TABLE IF EXISTS `user`;
@@ -50,7 +67,7 @@ CREATE TABLE `user_friend` (
 
 /*Data for the table `user_friend` */
 
-insert  into `user_friend`(`user_id`,`friend_id`,`request`) values (2,3,'FRIEND'),(2,1,'FRIEND');
+insert  into `user_friend`(`user_id`,`friend_id`,`request`) values (2,3,'FRIEND'),(1,2,'REQUEST');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
